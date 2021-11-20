@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h2>
+    <a href="{% url 'polls:editor' %}">New poll</a>
+</h2>
+{% endif %}
+
+
+<h3>
+    Latest Polls
+</h3>
+
+{% if latest_question_list %}
+    {% for question in latest_question_list %}
+    <div class="pollItem">
+        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% endblock content %}

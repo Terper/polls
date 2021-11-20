@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'polls:index' %}">Back</a>
+	<h1>Register</h1>
+	{% if registerError == True %}
+	<b>Unsuccessful registration. Invalid information.</b>
+	{% endif %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form }}                    
+		<button type="submit">Register</button>
+	</form>
+	<p>If you already have an account, <a href="{% url 'polls:login' %}">login</a> instead.</p>
+	{% endblock content %}

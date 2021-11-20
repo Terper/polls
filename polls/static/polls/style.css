@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+    --back: rgb(245, 245, 245);
+    --fore: #E0E0E8ff;
+    --hl: rgb(72, 117, 177);
+    --hlt: rgba(72, 118, 177, 0.671);
+    --text: #373f47ff;
+}
+
+body {
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    max-width: 1024px;
+    padding: 1rem;
+    background-color: var(--back);
+    color: var(--text);
+}
+a {
+    text-decoration: none;
+    color: var(--hl);
+}
+a:hover {
+    color: var(--hlt);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pollItem {
+    padding: .2rem 0;
+    font-size: 1.2rem;
+}

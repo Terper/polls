@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="{% url 'polls:index' %}">Back</a>
+    
+    <h2>Login</h2>
+    
+    {% if loginError == True %}
+    <p><b>Username or password is invalid</b></p>
+    {% endif %}
+    
+    <form method="POST">
+      {% csrf_token %}
+      {{ login_form }}
+      <button type="submit">Login</button>
+    </form>
+    <!--<p><a href="{% url 'polls:index' %}">Forgot your password?</a></p> change index to password_reset-->
+    <p>Don't have an account? <a href="{% url 'polls:register' %}">Create an account</a>.</p>
+{% endblock content %}

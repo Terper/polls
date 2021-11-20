@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'polls:index' %}">Back</a>
+
+<form action="{% url 'polls:create' %}" method="post">
+    {% csrf_token %}
+    <legend><h1><input type="text" name="question_text" placeholder="Question"></h1></legend>
+    <div id="choices">
+        <input type="text" name="choice_text0" placeholder="Choice"><br>
+    </div>
+    <button type="button" onclick="addField()">+</button>
+    <input type="submit" value="Create">
+</form>
+
+
+<script>
+    let i = 0
+    function addField () {
+        i++
+        const fieldset = document.getElementById("choices")
+        let field = document.createElement("input")
+        field.type = "text"
+        field.name = "choice_text" + i
+        field.placeholder = "Choice"
+        fieldset.append(field)
+        fieldset.append(document.createElement("br"))
+    }
+
+</script>
+{% endblock content %}
